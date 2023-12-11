@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2><a href="/form">Insert User</a></h2>
+    <table border="2" >
+        <thead>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone_No</th>
+            <th>Options</th>  
+        </thead>
+        <tbody>
+            <% for ( var i = 0; i < ds.length; i++ ) { %>
+                <tr>
+                    <td><%=ds[i].uname%></td>
+                    <td><%=ds[i].email%></td>
+                    <td><%=ds[i].phone_no%></td>
+                    <td><a href="/users/<%=ds[i].uid%>">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Delete</a></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
