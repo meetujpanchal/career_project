@@ -142,7 +142,7 @@
     <div class="class-add">
       <table align="right">
         <tr>
-          <td><a href="addfacility.php" class="btn btn-primary btn-lg" role="button"><i
+          <td><a href="/fs" class="btn btn-primary btn-lg" role="button"><i
                 class="bi bi-plus-circle"></i></a></td>
         </tr>
       </table>
@@ -163,9 +163,9 @@
               <td>
                 <%=fs[i].facility%>
               </td>
-              <td><a href="facility_delete.php?facility_id=<?php echo $r['fid'];?>" class="btn btn-danger btn-md"
+              <td><a href="/dlfs/<%=fs[i].fid%>>" class="btn btn-danger btn-md"
                   role="button"><i class="bi bi-trash"></i></a>
-                <a href="facility_edit.php?facility_id=<?php echo $r['fid'];?>" class="btn btn-success btn-md"
+                <a href="/ef/<%=fs[i].fid%>" class="btn btn-success btn-md"
                   role="button"><i class="bi bi-pencil-square"></i></a>
               </td>
             </tr>

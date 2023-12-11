@@ -76,6 +76,43 @@ app.get('/clg', (req, res) => {
     })
 })
 
+app.get('/fs' ,(req,res)=>{
+    res.render('facilityadd')
+})
+
+app.post('/addfs',(req,res)=>{
+    const { fname } = req.body;
+    db.query('INSERT INTO facility(facility) VALUES (?)',[fname],(err,result)=>{
+        if (err) throw err;
+        res.redirect('/facility')
+    })
+})
+
+app.get('/dlfs/:id', (req,res)=>{
+    const { id } = req.params;
+    db.query('DELETE FROM facility where fid = ?',[id],(err,result)=>{
+        res.redirect('/facility')
+    })
+})
+
+app.get('/ef/:id',(req,res)=>{
+    const { id } = req.params;    
+    db.query('SELECT * FROM facility where fid = ?', [id],(err,result)=>{        
+        res.render('fsedit',{
+            edf: result[0].facility,
+            edfi: result[0].fid
+        })
+    })
+})
+
+app.post('/edfs/:id',(req,res)=>{
+    const { id } = req.params;
+    const { fname } = req.body;
+    db.query('UPDATE facility SET facility = ? where fid = ?', [fname,id],(err,result)=>{
+        res.redirect('/facility')
+    })
+})
+
 app.get('/facility', (req, res) => {
     db.query('SELECT * FROM facility', (err, result) => {
         if (err) throw err;
