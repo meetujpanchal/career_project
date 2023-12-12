@@ -4,6 +4,18 @@ const path = require('path')
 const mysql = require('mysql2')
 const { error } = require('console')
 const session = require('express-session')
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function(req,file,cb){
+        return cb(null, 'views/sb_assets')
+    },
+    filename: function(req,file,cb){
+        return cb(null, `uploads/${Date.now()}-${file.originalname}`)
+    }
+})
+
+const upload = multer({ storage })
 
 app.set('view engine', 'ejs')
 app.set('views', path.resolve('./views'))
@@ -124,11 +136,13 @@ app.post('/addcl',(req,res)=>{
     });
 });
 
-app.post('/addcr',(req,res)=>{
-    const { cname,cfees,cduration,cdescri,image,urls } = req.body;
+app.post('/addcr', upload.single('image') ,(req,res)=>{
+    console.log(req.file)
+    const { cname,cfees,cduration,cdescri,urls } = req.body;
+    image = req.file.filename;
     db.query('INSERT INTO course(cname,cfees,cduration,cdescri,image,urls) VALUES (?,?,?,?,?,?)', [cname,cfees,cduration,cdescri,image,urls],(err, result)=>{
         if(err) throw err;
-        res.redirect('/courseadd');
+        res.redirect('/course1');
     });
 });
 
