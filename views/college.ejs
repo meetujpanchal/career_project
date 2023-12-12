@@ -186,7 +186,7 @@
               </td>
               <td><textarea class="form-control" rows="5" id="comment"><%=cl[i].clg_des%></textarea></td>
               <td><img src="sb_assets/<%=cl[i].image%>" height="100px" width="100px"></td>
-              <td><a href="clg_delete.php?clg_id=<?php echo $r['c_id'];?>" class="btn btn-danger btn-md"
+              <td><a href="dlcollege/<%=cl[i].c_id%>" class="btn btn-danger btn-md"
                   role="button"><i class="bi bi-trash"></i></a>
                 <a href="clg_edit.php?clg_id=<?php echo $r['c_id'];?>" class="btn btn-success btn-md" role="button"><i
                     class="bi bi-pencil-square"></i></a>
