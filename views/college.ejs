@@ -79,8 +79,9 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="sb_assets/img/profile.png" height="40" width="40" alt="Profile" class="rounded-circle">
+            Welcome Sub Admin -
             <span class="d-none d-md-block dropdown-toggle ps-2">
-              <?php echo $_SESSION['login_admin'];?>
+              <%= lnm %>
             </span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -137,7 +138,7 @@
           <i class="bi bi-award"></i>
           <span>Facility</span>
         </a>
-      </li><!-- End Facility Page Nav -->      
+      </li><!-- End Facility Page Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -186,8 +187,8 @@
               </td>
               <td><textarea class="form-control" rows="5" id="comment"><%=cl[i].clg_des%></textarea></td>
               <td><img src="sb_assets/<%=cl[i].image%>" height="100px" width="100px"></td>
-              <td><a href="dlcollege/<%=cl[i].c_id%>" class="btn btn-danger btn-md"
-                  role="button"><i class="bi bi-trash"></i></a>
+              <td><a href="dlcollege/<%=cl[i].c_id%>" class="btn btn-danger btn-md" role="button"><i
+                    class="bi bi-trash"></i></a>
                 <a href="clg_edit.php?clg_id=<?php echo $r['c_id'];?>" class="btn btn-success btn-md" role="button"><i
                     class="bi bi-pencil-square"></i></a>
               </td>

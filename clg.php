@@ -46,7 +46,7 @@
       <td><?php echo $r['mo_no'];?></td>
       <td><?php echo $r['urls'];?></td>
       <td><textarea class="form-control" rows="5" id="comment"><?php echo $r['clg_des'];?></textarea></td>
-      <td><img src="<?php echo $r['image'];?>" height="100px" width="100px"></td>
+      <td><img src="views/sb_assets/<?php echo $r['image'];?>" height="100px" width="100px"></td>
       <td><a href="clg_delete.php?clg_id=<?php echo $r['c_id'];?>" class="btn btn-danger btn-md" role="button"><i class="bi bi-trash"></i></a>
       <a href="clg_edit.php?clg_id=<?php echo $r['c_id'];?>" class="btn btn-success btn-md" role="button"><i class="bi bi-pencil-square"></i></a></td>
         </tr>

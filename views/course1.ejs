@@ -78,8 +78,9 @@
 					<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
 						<img src="sb_assets/img/profile.png" height="40" width="40" alt="Profile"
 							class="rounded-circle">
+						Welcome Sub Admin -
 						<span class="d-none d-md-block dropdown-toggle ps-2">
-							<?php echo $_SESSION['login_admin'];?>
+							<%= lnm %>
 						</span>
 					</a><!-- End Profile Iamge Icon -->
 
@@ -144,8 +145,8 @@
 
 		<table align="right">
 			<tr>
-				<td><a href="/course" class="btn btn-primary btn-lg" role="button"><i
-							class="bi bi-plus-circle"></i></a></td>
+				<td><a href="/course" class="btn btn-primary btn-lg" role="button"><i class="bi bi-plus-circle"></i></a>
+				</td>
 			</tr>
 		</table>
 		<div class="mx-5 mt-5 text-center">
@@ -178,8 +179,8 @@
 							<td><textarea class="form-control" rows="5" id="comment"><%=cr[i].cdescri%></textarea>
 							</td>
 							<td><img src="sb_assets/<%=cr[i].image%>" height="100px" width="100px"></td>
-							<td><a href="/dlcourses/<%=cr[i].cid%>"
-									class="btn btn-danger btn-md" role="button"><i class="bi bi-trash"></i></a></td>
+							<td><a href="/dlcourses/<%=cr[i].cid%>" class="btn btn-danger btn-md" role="button"><i
+										class="bi bi-trash"></i></a></td>
 							<td><a href="Course_edit.php?course_id=<?php echo $r['cid'];?>"
 									class="btn btn-success btn-md" role="button"><i class="bi bi-pencil-square"></i></a>
 							</td>

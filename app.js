@@ -67,38 +67,50 @@ app.get('/login', (req, res) => {
 
 app.post('/log', (req, res) => {
     const { name, pass } = req.body;
+    req.session.user = name;
+    req.session.save();
     db.query('SELECT (aname,pwd) FROM admin where aname = ? AND pwd = ?', [name, pass], (err, result) => {
         res.redirect('/dash')
-    })
+    })    
+})
 
+app.get('/logout', (req,res)=>{
+    req.session.destroy();
+    res.redirect('/login')
 })
 
 // ========================================Display========================================================
 
 
 app.get('/course1', (req, res) => {
+    const lnm = req.session.user;
     db.query('SELECT * FROM course', (err, results) => {
         if (err) throw err;
         res.render('course1', {
-            cr: results
+            cr: results,
+            lnm
         })
     })
 })
 
 app.get('/clg', (req, res) => {
+    const lnm = req.session.user;
     db.query('SELECT * FROM college', (err, clresult) => {
         if (err) throw err;
         res.render('college', {
-            cl: clresult
+            cl: clresult,
+            lnm
         })
     })
 })
 
 app.get('/facility', (req, res) => {
+    const lnm = req.session.user;
     db.query('SELECT * FROM facility', (err, result) => {
         if (err) throw err;
         res.render('facility', {
-            fs: result
+            fs: result,
+            lnm
         })
     })
 })
@@ -106,13 +118,15 @@ app.get('/facility', (req, res) => {
 // ========================================Display-Count=====================================================
 
 app.get('/dash', (req, res) => {
+    const lnm = req.session.user;
     db.query('SELECT count(2) AS id FROM course', (err, result) => {
         if (err) throw err;
         db.query('SELECT count(2) AS clid FROM college', (err, clresult) => {
             if (err) throw err;
             res.render('dash', {
                 c: result[0].id,
-                cl : clresult[0].clid
+                cl : clresult[0].clid,
+                lnm
             })
         })        
     })

@@ -44,7 +44,7 @@
 			<td><?php echo $r['cfees'];?></td>
       <td><?php echo $r['cduration'];?></td>
       <td><textarea class="form-control" rows="5" id="comment"><?php echo $r['cdescri'];?></textarea></td>
-            <td><img src="<?php echo $r['image'];?>" height="100px" width="100px"></td>
+            <td><img src="views/sb_assets/<?php echo $r['image'];?>" height="100px" width="100px"></td>
       <td><a href="course_delete.php?course_id=<?php echo $r['cid'];?>" class="btn btn-danger btn-md" role="button"><i class="bi bi-trash"></i></a></td>
       <td><a href="Course_edit.php?course_id=<?php echo $r['cid'];?>" class="btn btn-success btn-md" role="button"><i class="bi bi-pencil-square"></i></a></td>
 			</tr>
