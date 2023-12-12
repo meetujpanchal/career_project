@@ -128,11 +128,12 @@ app.post('/addfs',(req,res)=>{
     });
 });
 
-app.post('/addcl',(req,res)=>{
-    const { clgname,clg_email,Address,mo_no,clg_des,image,urls } = req.body;
+app.post('/addcl',upload.single('image') ,(req,res)=>{
+    const { clgname,clg_email,Address,mo_no,clg_des,urls } = req.body;
+    image = req.file.filename;
     db.query('INSERT INTO college(clgname,clg_email,Address,mo_no,clg_des,image,urls) VALUES (?,?,?,?,?,?,?)',[clgname,clg_email,Address,mo_no,clg_des,image,urls],(err,result)=>{
         if (err) throw err;
-        res.redirect('/collegeadd');
+        res.redirect('/clg');
     });
 });
 
@@ -165,7 +166,7 @@ app.get('/dlcourses/:id', (req,res)=>{
 app.get('/dlcollege/:id', (req,res)=>{
     const { id } = req.params;
     db.query('DELETE FROM college where c_id = ?',[id],(err,result)=>{
-        res.redirect('/college')
+        res.redirect('/clg')
     });
 });
 
