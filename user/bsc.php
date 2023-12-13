@@ -26,6 +26,7 @@
 
     
         <link rel="shortcut icon" href="https://images.shiksha.ws/pwa/public/images/apple-touch-icon-v1.png">
+        <link rel="stylesheet" href="../css/sk.css">
     
     
     <link data-chunk="courseHomePage" rel="preload" as="style" href="https://js.shiksha.ws/pwa/public/js/courseHomePage.9d2569d46a043a72ffdd.css">
@@ -40,7 +41,7 @@
     $result=mysqli_query($cn,"select * from course where cid='4'")or die("error in select query");
     if(mysqli_num_rows($result)>0){
         while($r=mysqli_fetch_array($result)){?>
-            <h2 style="text-align: right;">
+            <h2 style="text-align: center;">
             <?php echo $r['cname'];?>&nbsp;</h2> 
             <?php
         }

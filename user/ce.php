@@ -31,6 +31,7 @@
     <link data-chunk="courseHomePage" rel="preload" as="style" href="https://js.shiksha.ws/pwa/public/js/courseHomePage.9d2569d46a043a72ffdd.css">
     
     <!-- <link rel="stylesheet" type="text/css" id="shkCmn"> -->
+    <link rel="stylesheet" href="../css/sk.css">
     
     <link data-chunk="courseHomePage" rel="stylesheet" href="https://js.shiksha.ws/pwa/public/js/courseHomePage.9d2569d46a043a72ffdd.css">
     <script async="" src="https://a.quora.com/qevents.js"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script><script defer="" src="//www.googletagmanager.com/gtm.js?id=GTM-5FCGK6"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script></head>
@@ -40,7 +41,7 @@
     $result=mysqli_query($cn,"select * from course where cid='9'")or die("error in select query");
     if(mysqli_num_rows($result)>0){
         while($r=mysqli_fetch_array($result)){?>
-            <h2 style="text-align: right;">
+            <h2 style="text-align: center;">
             <?php echo $r['cname'];?>&nbsp;</h2> 
             <?php
         }

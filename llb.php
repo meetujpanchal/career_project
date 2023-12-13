@@ -30,6 +30,8 @@
     
     <link data-chunk="courseHomePage" rel="preload" as="style" href="https://js.shiksha.ws/pwa/public/js/courseHomePage.9d2569d46a043a72ffdd.css">
     
+    <link rel="stylesheet" href="css/sk.css">
+
     <!-- <link rel="stylesheet" type="text/css" id="shkCmn"> -->
     
     <link data-chunk="courseHomePage" rel="stylesheet" href="https://js.shiksha.ws/pwa/public/js/courseHomePage.9d2569d46a043a72ffdd.css">

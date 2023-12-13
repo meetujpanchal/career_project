@@ -8,6 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <link rel="stylesheet" href="../css/sk.css">
+
     
     <link data-chunk="courseHomePage" rel="preload" as="style" href="https://js.shiksha.ws/pwa/public/js/courseHomePage.9d2569d46a043a72ffdd.css">
     
@@ -15,13 +17,20 @@
     
     <link data-chunk="courseHomePage" rel="stylesheet" href="https://js.shiksha.ws/pwa/public/js/courseHomePage.9d2569d46a043a72ffdd.css">
     <script async="" src="https://a.quora.com/qevents.js"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script><script defer="" src="//www.googletagmanager.com/gtm.js?id=GTM-5FCGK6"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script></head>
-<body id="wrapperMainForCompleteShiksha" class="lazyLoad">
-    <div class="chpl2desk"><div class="l2--menu"><div class="l2--menu_inner"><ul class="menuItemsContainerList"><li><a title="BCA (Bachelor of Computer Applications)" class="l2--menu_link l2active ripple dark" data-name="Overview" href="index.php">Home</a></li><li><a title="BCA (Bachelor of Computer Applications) Syllabus" class="l2--menu_link ripple dark" data-name="Syllabus" href="viewmorecourse.php">Course</a></li><li><a title="Popular BCA (Bachelor of Computer Applications) Colleges" class="l2--menu_link ripple dark" data-name="Popular Colleges" href="viewmorecollege.php"> Colleges</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<li style="text-align: right;"><?php
+
+    <div class="chpl2desk">
+        <div class="l2--menu">
+            <div class="l2--menu_inner">
+                <ul class="menuItemsContainerList">
+                    <li><a title="BCA (Bachelor of Computer Applications)" class="l2--menu_link l2active ripple dark" data-name="Overview" href="index.php">Home</a></li>
+                    <li><a title="BCA (Bachelor of Computer Applications) Syllabus" class="l2--menu_link ripple dark" data-name="Syllabus" href="viewmorecourse.php">Course</a></li>
+                    <li><a title="Popular BCA (Bachelor of Computer Applications) Colleges" class="l2--menu_link ripple dark" data-name="Popular Colleges" href="viewmorecollege.php"> Colleges</a></li>
+                    <li style="text-align: right;"><?php
     include("dbconfig.php");
     $result=mysqli_query($cn,"select * from course where cid='1'")or die("error in select query");
     if(mysqli_num_rows($result)>0){
         while($r=mysqli_fetch_array($result)){?>
-            <h2 style="text-align: right;">
+            <h2 style="text-align: center;">
             <?php echo $r['cname'];?>&nbsp;</h2> 
             <?php
         }
@@ -63,11 +72,7 @@
   <tr style="height: 20px;"> 
    <td style="height: 20px; width: 379px;"><strong>Average Course Fee</strong></td> 
    <td style="height: 20px; width: 667px;"><?php echo $r['cfees'];?></td> 
-  </tr> 
-  <tr style="height: 20px;"> 
-   <td style="height: 20px; width: 379px;"><strong>Average Starting Salary</strong></td> 
-   <td style="height: 20px; width: 667px;"><?php echo $r['avg_sal'];?></td> 
-  </tr> 
+  </tr>   
   <tr> 
    <td style="width: 379px;"><strong>BCA Subjects</strong></td> 
    <td style="width: 667px;">Data Structures, Hardware Lab, Operating Systems, Database Management, User Interface Design, UNIX Programming, Financial Management, etc.</td> 
