@@ -40,16 +40,19 @@ include("dbconfig.php");
                                 </td>
                                 <td>
                                     <?php $cr = mysqli_query($cn, 'select * from course where cid = ' . $r['course']); ?>
-                                    <?php $ccr = mysqli_fetch_array($cr); ?>
+                                    <?php $ccr = mysqli_fetch_array($cr); ?>                                    
                                     <?php echo $ccr['cname']; ?>
                                 </td>
+                                <!--  -->
                                 <td>
-                                    <div class="col-2">
+                                    <div>
                                         <form action="mail/send.php" method="post">
                                             <input type="hidden" name="email" value="<?php echo $r['umail']; ?>">
                                             <input type="hidden" name="course" value="<?php echo $ccr['cname']; ?>">
-                                            <div class="p-t">
-                                                <button class="btn btn-success" type="submit" name="send">Enquiry</button>
+                                            <input type="hidden" name="descri" value="<?php echo $ccr['cdescri']; ?>"> 
+                                            <input type="hidden" name="contact" value="<?php echo $cont['mo_no']; ?>">                                            
+                                            <div>
+                                                <button class="btn btn-success" type="submit" name="send">Send Email</button>
                                             </div>
                                         </form>
                                     </div>
