@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 include("user_dasbordheader.php");
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,9 @@ include("user_dasbordheader.php");
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,19 +44,12 @@ include("user_dasbordheader.php");
 </head>
 
 <body>
- <!-- ======= Sidebar ======= -->
+  <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link " href="dasbord.php">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
       <li class="nav-heading">Pages</li>
-     <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="dis.php">
           <i class="bi bi-person-bounding-box"></i>
           <span>My profile</span>
@@ -74,20 +69,26 @@ include("user_dasbordheader.php");
       </li><!-- End cahnge password Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="evai.php">
-         <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
           <span>Ranked</span>
         </a>
-      </li><!-- End ranked Page Nav -->  
+      </li><!-- End ranked Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="display_rank.php">
-         <i class="bi bi-window-fullscreen"></i>
+          <i class="bi bi-window-fullscreen"></i>
           <span>View All Colleges Rank</span>
         </a>
-      </li><!-- End ranked Page Nav -->  
-           
+      </li><!-- End ranked Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="enquiry.php">
+          <i class="bi bi-search"></i>
+          <span>Enquiry</span>
+        </a>
+      </li><!-- End enquiry Page Nav -->
 
     </ul>
 
   </aside><!-- End Sidebar-->
 </body>
+
 </html>

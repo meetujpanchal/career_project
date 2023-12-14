@@ -163,6 +163,12 @@ session_start();
           <span>Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="enquiry.php">
+        <i class="bi bi-search"></i>
+          <span>Enquiry</span>
+        </a>
+      </li><!-- End enquiry Page Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->

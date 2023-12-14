@@ -22,8 +22,8 @@ if(isset($_POST['send'])){
     $mail->setFrom('meet46884@gmail.com');
     $mail->addAddress($_POST['email']);
     $mail->isHTML(true);
-    $mail->Subject = $_POST['subject'];
-    $mail->Body = $_POST['message'];    
+    $mail->Subject = "Course Enquiry";
+    $mail->Body = "We'v got your enquiry related the ".$_POST['course']." Course";    
 
     $mail->send();
 
@@ -31,7 +31,7 @@ if(isset($_POST['send'])){
     "
     <script>
     alert('Sent successfully');
-    document.location.href = 'index.php';
+    document.location.href = '../enquiry.php';
     </script>
     ";
 
