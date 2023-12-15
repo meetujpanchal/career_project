@@ -26,7 +26,7 @@ if(isset($_POST['send'])){
     $mail->addAddress($_POST['email']);
     $mail->isHTML(true);
     $mail->Subject = "Course Enquiry";    
-    $mail->Body = "We'v got your enquiry related the ".$_POST['course']." Course.<br><br> Description is : ".$_POST['descri']."<br><br>contact no is : ".$_POST['contact'];    
+    $mail->Body = "We'v got your enquiry related the ".$_POST['course']." Course.<br><br> Description is : ".$_POST['descri'];    
 
     $mail->send();
 
