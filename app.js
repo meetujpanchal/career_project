@@ -8,7 +8,7 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
-        return cb(null, 'views/sb_assets')
+        return cb(null, 'admin/views/sb_assets')
     },
     filename: function(req,file,cb){
         return cb(null, `uploads/${Date.now()}-${file.originalname}`)
@@ -18,11 +18,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 app.set('view engine', 'ejs')
-app.set('views', path.resolve('./views'))
+app.set('views', path.resolve('./admin/views'))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('views'))
+app.use(express.static('admin/views'))
 
 app.use(session({
     secret: 'secret',

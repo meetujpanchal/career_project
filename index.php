@@ -1,4 +1,5 @@
 <?php
+    session_start();
  include("dbconfig.php");
  $result=mysqli_query($cn,"select * from course") or die("error in select query");
 ?>
@@ -24,7 +25,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="adminlog.php">Career Counselling</a>
+                <a class="navbar-brand" href="admin/adminlog.php">Career Counselling</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -36,7 +37,16 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio1">College</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About Us</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact Us</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="user/user_log.php">Log in</a></li>
+                        <?php 
+                            if(isset($_SESSION['login_user'])){ ?>
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="user/dis.php">Profile</a></li>
+                        <?php
+                            }
+                            else{ ?>
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="user/user_log.php">Log in</a></li>
+                        <?php    
+                            }
+                        ?>                        
                     </ul>
                 </div>
             </div>
@@ -81,7 +91,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"></div>
                             </div>
-                            <img class="img-fluid" src="views/sb_assets/<?php echo $r['image'];?>" width="450" height="450" alt="...">
+                            <img class="img-fluid" src="admin/views/sb_assets/<?php echo $r['image'];?>" width="450" height="450" alt="...">
                         </div>    
                     </div>
                     <?php
@@ -118,7 +128,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"></div>
                             </div>
-                            <img class="img-fluid" src="<?php echo $r['image'];?>" width="450" height="450" alt="...">
+                            <img class="img-fluid" src="admin/views/sb_assets/<?php echo $r['image'];?>" width="450" height="450" alt="...">
                         </div>    
                     </div>
                     <?php

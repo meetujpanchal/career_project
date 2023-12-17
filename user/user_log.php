@@ -13,7 +13,7 @@
          $_SESSION['login_user'] = $r['uname'];
          $_SESSION['uid'] = $r['uid'];
          $_SESSION['email'] = $r['email'];
-         header("location:dis.php");
+         header("location:../index.php");
       }
     }
     else 

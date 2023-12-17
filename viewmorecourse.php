@@ -1,5 +1,6 @@
 <?php
  include("dbconfig.php");
+ require './header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,9 @@
 </head>
 
 <body>
-	
+	<br>
+	<br>
+	<br>
      <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
@@ -45,9 +48,9 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"></div>
                             </div>
-                            <img class="img-fluid" src="views/sb_assets/<?php echo $r['image'];?>" width="450" height="450" alt="...">
+                            <img class="img-fluid" src="admin/views/sb_assets/<?php echo $r['image'];?>" width="450" height="450" alt="...">
                         </div>    
-                        <h3><a href="<?php echo $r['urls'];?>"><?php echo $r['cname'];?></a></h3>
+                        <h3><a href="details.php?cid=<?php echo $r['cid']; ?>"><?php echo $r['cname'];?></a></h3>
                     </div>
                     <?php
                     }
@@ -55,6 +58,9 @@
                 </div>
             </div>
         </section>
+        <?php
+        require './footer.php';
+        ?>
 </body>
 
 </html>

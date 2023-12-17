@@ -66,7 +66,7 @@ include("user_dasbord.php");
       ?>
       <div class="card" style="width: 25rem;">
   <div class="card-body">
-  <h5 class="card-title"><br><img src="/career/<?php echo $r['image'];?>" height="300px" width="358.01px">
+  <h5 class="card-title"><br><img src="../admin/views/sb_assets/<?php echo $r['image'];?>" height="300px" width="358.01px">
     <b>College Name:</b><br><?php echo $r['clgname'];?></br><br>
           <b>College Address:</b><br><?php echo $r['Address'];?><br><br>
           <b>College Email:</b><br><?php echo $r['clg_email'];?><br><br>
@@ -83,7 +83,7 @@ include("user_dasbord.php");
     while ($r=mysqli_fetch_array($result)) 
     {
       ?>
-          <br><a href="<?php echo $r['urls'];?>"><?php echo $r['cname'];?></a></p>
+          <br><a href="../detailsc.php?cname=<?php echo $r['cname'];?>"><?php echo $r['cname'];?></a></p>
           <?php
         }
       }
@@ -122,7 +122,7 @@ include("user_dasbord.php");
       ?>
       <div class="card" style="width: 25rem;">
   <div class="card-body">
-    <p class="card-title"><b>Course Name:</b><br><a href="<?php echo $r['urls'];?>"><?php echo $r['cname'];?></a></br></br>
+    <p class="card-title"><b>Course Name:</b><br><a href="../details.php?cid=<?php echo $r['cid']?>"><?php echo $r['cname'];?></a></br></br>
                           <b>Course Descriation:</b><br><?php echo $r['cdescri'];?></br>
                          <p class="card-title"><b>Related College Name:</b>
           <?php
