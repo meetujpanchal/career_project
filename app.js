@@ -78,7 +78,7 @@ app.post('/log', (req, res) => {
           }else{
             res.send('<script>alert("Incorrect Username or Password!!")</script>')
           }  
-          res.end();
+          res.end()
         })
     }else{
         res.send('<script>alert("Enter Username and Password!!")</script>')
