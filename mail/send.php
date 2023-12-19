@@ -17,12 +17,12 @@ if(isset($_POST['send'])){
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'meet46884@gmail.com';
-    $mail->Password = 'crkjdseliotlpsgz';
+    $mail->Username = 'venkeysurti21@gmail.com';
+    $mail->Password = 'zhzkjvrjuflptzuq';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
-    $mail->setFrom('meet46884@gmail.com');
+    $mail->setFrom('venkeysurti21@gmail.com');
     $mail->addAddress($_POST['email']);
     $mail->isHTML(true);
     $mail->Subject = "Course Enquiry";    
@@ -34,7 +34,7 @@ if(isset($_POST['send'])){
     "
     <script>
     alert('Sent successfully');
-    document.location.href = '../enquiry.php';
+    document.location.href = '../admin/enquiry.php';
     </script>
     ";
 
