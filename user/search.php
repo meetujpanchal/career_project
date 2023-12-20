@@ -4,6 +4,7 @@ include("user_dasbord.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -13,156 +14,175 @@ include("user_dasbord.php");
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
   <main id="main" class="main">
-<div class="container-fluid mt-3">
-    <div class="row">
-    <div class="col p-3 ">
-      <div class="container">
-    <form method="POST">
+    <div class="container-fluid mt-3">
+      <div class="row">
+
+
+        <form method="POST">
+          <div class="form-group">
+            <h4><label for="sel1">Select College :</label></h4>
+            <?php
+            $catresult = mysqli_query($cn, "Select * from college") or die("Error In Select Query");
+            ?>
+            <h5><select name="clgid" class="input--style-4">
+                <?php
+                while ($cr = mysqli_fetch_array($catresult)) { ?>
+
+                  <option><?php echo $cr['clgname']; ?></option>
+                <?php } ?>
+              </select></h5>
+          </div>
+
+
+      </div>
+    </div>
+    <button type="submit" name="btnsub" class="btn btn-primary ">Search By college</button><br><br>
     <div class="form-group">
-      <h4><label for="sel1">Select College :</label></h4>
-       <?php
-    $catresult=mysqli_query($cn,"Select * from college")or die("Error In Select Query");
-  ?>
-   <h5><select name="clgid" class="input--style-4">
-   <?php
-    while($cr=mysqli_fetch_array($catresult)){ ?>
-      
-  <option><?php echo $cr['clgname'];?></option>
-  <?php } ?>
-   </select></h5>
-    </div>
-</div>
-</div>
-  </div>
-</div>
-<button type="submit"  name="btnsub" class="btn btn-primary ">Search By college</button><br>
-<div class="form-group">
       <h4><label for="sel1">Select Course :</label></h4>
-       <?php
-    $catresult=mysqli_query($cn,"Select * from course")or die("Error In Select Query");
-  ?>
-   <h5><select name="cid" class="input--style-4">
-   <?php
-    while($cr=mysqli_fetch_array($catresult)){ ?>
-      
-  <option><?php echo $cr['cname'];?></option>
-  <?php } ?>
-   </select></h5>
+      <?php
+      $catresult = mysqli_query($cn, "Select * from course") or die("Error In Select Query");
+      ?>
+      <h5><select name="cid" class="input--style-4">
+          <?php
+          while ($cr = mysqli_fetch_array($catresult)) { ?>
+
+            <option><?php echo $cr['cname']; ?></option>
+          <?php } ?>
+        </select></h5>
     </div>
-    <button type="submit"  name="btnc" class="btn btn-primary ">Search By Course</button><br>
+    <button type="submit" name="btnc" class="btn btn-primary ">Search By Course</button><br><br><br>
+
+
+
+
+
+
+
+
+    <div>
+      <?php
+      include("dbconfig.php");
+      if (isset($_POST['btnsub'])) {
+
+        $name = $_POST['clgid'];
+
+        $result = mysqli_query($cn, "select * from college where clgname='$name'  ");
+
+        while ($r = mysqli_fetch_array($result)) {
+      ?>
+          <div class="card mb-3">
+            <img class="card-img-top" src="../admin/views/sb_assets/<?php echo $r['image']; ?>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><b>College Name&nbsp;&nbsp;:</b>&nbsp;&nbsp;<?php echo $r['clgname']; ?></h5>
+              <p class="card-text"><b>College Description&nbsp;&nbsp;:</b>&nbsp;&nbsp;<?php echo $r['clg_des']; ?></p>
+              <p class="card-text"><b>College Address&nbsp;&nbsp;:</b>&nbsp;&nbsp;<?php echo $r['Address']; ?></p>
+              <p class="card-text"><b>College Email&nbsp;&nbsp;:</b>&nbsp;&nbsp;<?php echo $r['clg_email']; ?></p>
+              <p class="card-text"><b>College Mobile&nbsp;&nbsp;:</b>&nbsp;&nbsp;<?php echo $r['mo_no']; ?></p>
+              <p class="card-text"><b>College Description&nbsp;&nbsp;:</b>&nbsp;&nbsp;<?php echo $r['clg_des']; ?></p>
+              <p class="card-text"><b>College Urls&nbsp;&nbsp;:</b>&nbsp;&nbsp;<a href="<?php echo $r['urls']; ?>"><?php echo $r['clgname']; ?></a></p>
+              <p class="card-text"><b>Related Course Name&nbsp;&nbsp;:</b><br>
+
+            </div>
+          </div>
+          <div class="card-deck">
+            <?php
+            include("dbconfig.php");
+            if (isset($_POST['btnsub'])) {
+              $result = mysqli_query($cn, "select * from cource_offer where c_id=" . $r['c_id']);
+
+              while ($rd = mysqli_fetch_array($result)) {
+            ?>
+
+                
+                  <div class="card">
+                    <!-- <img class="card-img-top" src="" height="300px" width="358.01px" alt="Card image cap"> -->
+                    <div class="card-body">
+                      <h5 class="card-title"><b>Course Name:</b><br><br><?php echo $rd['cname']; ?></h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+
+
+              <?php
+              }
+            }
+              ?>
+                </div>
+          </div>
+    </div>
+
+    <!--<a href="readmore.php?id= echo $r['sid']; ?>" class="btn btn-primary">Read More</a>-->
+
+
+    </div>
+
+    </div>
+
+
+<?php
+        }
+      }
+?>
+</div>
 <div>
   <?php
   include("dbconfig.php");
-  if(isset($_POST['btnsub'])){
+  if (isset($_POST['btnc'])) {
 
-    $name=$_POST['clgid'];
+    $name = $_POST['cid'];
 
-    $result=mysqli_query($cn,"select * from college where clgname='$name'  ");
+    $result = mysqli_query($cn, "select * from course where cname='$name'  ");
 
-    while ($r=mysqli_fetch_array($result)) 
-    {
-      ?>
+    while ($r = mysqli_fetch_array($result)) {
+  ?>
       <div class="card" style="width: 25rem;">
-  <div class="card-body">
-  <h5 class="card-title"><br><img src="../admin/views/sb_assets/<?php echo $r['image'];?>" height="300px" width="358.01px">
-    <b>College Name:</b><br><?php echo $r['clgname'];?></br><br>
-          <b>College Address:</b><br><?php echo $r['Address'];?><br><br>
-          <b>College Email:</b><br><?php echo $r['clg_email'];?><br><br>
-          <b>College Mo.no:</b><br><?php echo $r['mo_no'];?><br><br>
-          <b>College Address:</b><br><?php echo $r['Address'];?><br><br>
-          <b>College Description:</b><br><?php echo $r['clg_des'];?></p>
-          <b>College Site:</b><br><a href="<?php echo $r['urls'];?>"><?php echo $r['clgname'];?></a></p>
-          <b>Related Course Name:</b><br>
-          <?php
-  include("dbconfig.php");
-  if(isset($_POST['btnsub'])){
-    $result=mysqli_query($cn,"select * from cource_offer where c_id=".$r['c_id']);
+        <div class="card-body">
+          <p class="card-title"><b>Course Name:</b><br><a href="../details.php?cid=<?php echo $r['cid'] ?>"><?php echo $r['cname']; ?></a></br></br>
+            <b>Course Descriation:</b><br><?php echo $r['cdescri']; ?></br>
+          <p class="card-title"><b>Related College Name:</b>
+            <?php
+            include("dbconfig.php");
+            if (isset($_POST['btnc'])) {
+              $result = mysqli_query($cn, "select * from college_offer where cid=" . $r['cid']);
 
-    while ($r=mysqli_fetch_array($result)) 
-    {
-      ?>
-          <br><a href="../detailsc.php?cname=<?php echo $r['cname'];?>"><?php echo $r['cname'];?></a></p>
-          <?php
-        }
-      }
-      ?>
-  </div>
-</div>
-        
-        
-      </div>
-    </div>
-        
-              <!--<a href="readmore.php?id= echo $r['sid']; ?>" class="btn btn-primary">Read More</a>-->
-
-       
-      </div>
-
-    </div>
-         
-
+              while ($r = mysqli_fetch_array($result)) {
+            ?>
+                <br>
+          <p><b><a href="<?php echo $r['urls']; ?>"><?php echo $r['clgname']; ?></a></b></p>
       <?php
+              }
+            }
+      ?>
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+<!--<a href="readmore.php?id= echo $r['sid']; ?>" class="btn btn-primary">Read More</a>-->
+
+
+</div>
+
+</div>
+
+
+<?php
     }
   }
-  ?>
+?>
 </div>
-<div>
-  <?php
-  include("dbconfig.php");
-  if(isset($_POST['btnc'])){
-
-    $name=$_POST['cid'];
-
-    $result=mysqli_query($cn,"select * from course where cname='$name'  ");
-
-    while ($r=mysqli_fetch_array($result)) 
-    {
-      ?>
-      <div class="card" style="width: 25rem;">
-  <div class="card-body">
-    <p class="card-title"><b>Course Name:</b><br><a href="../details.php?cid=<?php echo $r['cid']?>"><?php echo $r['cname'];?></a></br></br>
-                          <b>Course Descriation:</b><br><?php echo $r['cdescri'];?></br>
-                         <p class="card-title"><b>Related College Name:</b>
-          <?php
-  include("dbconfig.php");
-  if(isset($_POST['btnc'])){
-    $result=mysqli_query($cn,"select * from college_offer where cid=".$r['cid']);
-
-    while ($r=mysqli_fetch_array($result)) 
-    {
-      ?>
-          <br><p><b><a href="<?php echo $r['urls'];?>"><?php echo $r['clgname'];?></a></b></p>
-          <?php
-        }
-      }
-      ?>
-  </div>
-</div>
-        
-        
-      </div>
-    </div>
-        
-              <!--<a href="readmore.php?id= echo $r['sid']; ?>" class="btn btn-primary">Read More</a>-->
-
-       
-      </div>
-
-    </div>
-         
-
-      <?php
-    }
-  }
-  ?>
-</div>
-  </form>
+</form>
 </div>
 </div>
 </div>
 </div>
-</main>
+  </main>
 </body>
+
 </html>
