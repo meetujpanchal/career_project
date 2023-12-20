@@ -46,7 +46,7 @@ include("dbconfig.php");
                                 <!--  -->
                                 <td>
                                     <div>
-                                        <form action="mail/send.php" method="post">
+                                        <form action="../mail/send.php" method="post">
                                             <input type="hidden" name="email" value="<?php echo $r['umail']; ?>">
                                             <input type="hidden" name="course" value="<?php echo $ccr['cname']; ?>">
                                             <input type="hidden" name="descri" value="<?php echo $ccr['cdescri']; ?>"> 

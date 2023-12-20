@@ -67,11 +67,24 @@ app.get('/login', (req, res) => {
 
 app.post('/log', (req, res) => {
     const { name, pass } = req.body;
-    req.session.user = name;
-    req.session.save();
-    db.query('SELECT (aname,pwd) FROM admin where aname = ? AND pwd = ?', [name, pass], (err, result) => {
-        res.redirect('/dash')
-    })    
+    const role = "subadmin";
+    if(name && pass){
+        db.query("SELECT * FROM admin WHERE aname = ? AND pwd = ? AND role = ?",[name,pass,role],function(err,result){
+          if ( err ) throw err;
+          if(result.length>0){
+            req.session.user = name;
+            req.session.save();
+            res.redirect("/dash")
+          }else{
+            res.send('<script>alert("Incorrect Username or Password!!")</script>')
+          }  
+          res.end()
+        })
+    }else{
+        res.send('<script>alert("Enter Username and Password!!")</script>')
+        res.end();
+    }
+    
 })
 
 app.get('/logout', (req,res)=>{

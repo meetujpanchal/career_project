@@ -1,10 +1,2 @@
-colorlib-regform-4,
-colorlib-regform-7,
 node_modules,
-public,
-package-lock.json,
-package.json,
-forms,
-forms2,
-login-register-master,
-NiceAdmin
+mail/send.php
