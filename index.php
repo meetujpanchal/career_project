@@ -165,7 +165,7 @@
         <?php
            include("dbconfig.php");
            if(isset($_POST['btnsub'])){
-            $result=mysqli_query($cn,"Insert into contact(co_name,co_mail,co_no,message)values('".$_POST['nm']."','".$_POST['email']."','".$_POST['no']."','".$_POST['msg']."')")or die("Error In Insert Query");
+            $result=mysqli_query($cn,"insert into contact(co_name,co_mail,co_no,message) values('".$_POST['nm']."','".$_POST['email']."','".$_POST['no']."','".$_POST['msg']."')")or die("Error In Insert Query");
             header("location:index.php");
             exit();
  }
@@ -199,14 +199,14 @@
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <input class="form-control" id="email" type="text" name="email" placeholder="name@example.com" data-sb-validations="required,email" />
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" name="no" data-sb-validations="required" />
+                                <input class="form-control" id="phone" type="text" placeholder="(123) 456-7890" name="no" data-sb-validations="required" />
                                 <label for="phone">Phone number</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>

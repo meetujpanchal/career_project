@@ -166,9 +166,9 @@ app.post('/addcl',upload.single('image') ,(req,res)=>{
 
 app.post('/addcr', upload.single('image') ,(req,res)=>{
     console.log(req.file)
-    const { cname,cfees,cduration,cdescri,urls } = req.body;
+    const { cname,cfees,cduration,cdescri } = req.body;
     image = req.file.filename;
-    db.query('INSERT INTO course(cname,cfees,cduration,cdescri,image,urls) VALUES (?,?,?,?,?,?)', [cname,cfees,cduration,cdescri,image,urls],(err, result)=>{
+    db.query('INSERT INTO course(cname,cfees,cduration,cdescri,image) VALUES (?,?,?,?,?)', [cname,cfees,cduration,cdescri,image],(err, result)=>{
         if(err) throw err;
         res.redirect('/course1');
     });

@@ -19,7 +19,7 @@
         $destinationfile="uploads/".$file_name;
         move_uploaded_file($file_tmp,"views/sb_assets/".$destinationfile);
 
-    $result=mysqli_query($cn,"Insert into course(cname,cfees,cduration,cdescri,image,urls)values('".$_POST['cnm']."','".$_POST['cfs']."','".$_POST['cdr']."','".$_POST['cdes']."','$destinationfile')")or die("Error In Insert Query");
+    $result=mysqli_query($cn,"Insert into course(cname,cfees,cduration,cdescri,image)values('".$_POST['cnm']."','".$_POST['cfs']."','".$_POST['cdr']."','".$_POST['cdes']."','$destinationfile')")or die("Error In Insert Query");
     header("location:course1.php");
    exit();
  }

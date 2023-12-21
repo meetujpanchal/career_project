@@ -24,7 +24,7 @@
 
                      <?php
                    if(isset($_POST['btnup'])){
-                    $result=mysqli_query($cn,"update user set password='".$_POST['renewpassword']."' where id=".$_SESSION['uid']) or die ("error in update Query");
+                    $result=mysqli_query($cn,"update user set pwd='".$_POST['renewpassword']."' where uid=".$_SESSION['uid']) or die ("error in update Query");
                    }
                    $row=mysqli_query($cn,"select * from user where uid=".$_SESSION['uid']) or die("error in select Query");
                    $r=mysqli_fetch_array($row);

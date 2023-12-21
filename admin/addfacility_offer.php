@@ -1,13 +1,12 @@
 <?php
- include("dbconfig.php");
- if(isset($_POST['btnsub']))
- {
-  $result=mysqli_query($cn,"insert into facility_offer(c_id,facility,clgname)values('".$_POST['clgid']."','".$_POST['facility']."','".$_POST['clgname']."')")or die("Error in Query");
-  header("location:facility_offer.php");
-  exit();
- } 
- ?> 
- <!DOCTYPE html>
+include("dbconfig.php");
+if (isset($_POST['btnsub'])) {
+    $result = mysqli_query($cn, "insert into facility_offer(c_id,facility,clgname)values('" . $_POST['clgid'] . "','" . $_POST['facility'] . "','" . $_POST['clgname'] . "')") or die("Error in Query");
+    header("location:facility_offer.php");
+    exit();
+}
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +24,9 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Vendor CSS-->
     <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
@@ -46,38 +47,46 @@
                             <div class="row-2">
                                 <div class="input-group">
                                     <label class="label">College Name</label>
-                                   <?php
-    $catresult=mysqli_query($cn,"Select * from college")or die("Error In Select Query");
-  ?>
-   <select name="clgid" class="input--style-4">
-   <?php
-    while($cr=mysqli_fetch_array($catresult)){ ?>
-  <option ><?php echo $cr['clgname'];?></option>
-  <?php } ?>
-   </select>
+                                    <?php
+                                    $catresult = mysqli_query($cn, "Select * from college") or die("Error In Select Query");
+                                    ?>
+                                    <select name="clgid" class="input--style-4">
+                                        <?php
+                                        while ($cr = mysqli_fetch_array($catresult)) { ?>
+                                            <option value="<?php echo $cr['c_id']; ?>">
+                                                <?php echo $cr['clgname']; ?>
+                                            </option>
+                                            <?php $c = mysqli_query($cn, "select * from college where c_id = " . $cr['c_id']); ?>
+                                        <?php } ?>
+                                    </select>
+                                    <?php while ($cc = mysqli_fetch_array($c)) { ?>
+                                        <input type="hidden" name="clgname" value="<?php echo $cc['clgname']; ?>">
+                                    <?php } ?>
                                 </div>
                             </div>
-                            
+
                             <div class="row-2">
                                 <div class="input-group">
                                     <label class="label">Facility Name</label>
-                                   <?php
-    $faciresult=mysqli_query($cn,"Select * from facility")or die("Error In Select Query");
-  ?>
-   <select name="facility" class="input--style-4">
-   <?php
-    while($cr=mysqli_fetch_array($faciresult)){ ?>
-  <option><?php echo $cr['facility'];?></option>
-  <?php } ?>
-   </select>
+                                    <?php
+                                    $faciresult = mysqli_query($cn, "Select * from facility") or die("Error In Select Query");
+                                    ?>
+                                    <select name="facility" class="input--style-4">
+                                        <?php
+                                        while ($cr = mysqli_fetch_array($faciresult)) { ?>
+                                            <option>
+                                                <?php echo $cr['facility']; ?>
+                                            </option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
-                            
-                          <div class="col-2">
-                        <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit" name="btnsub">Add</button>
-                        </div>
-                      </div>
+
+                            <div class="col-2">
+                                <div class="p-t-15">
+                                    <button class="btn btn--radius-2 btn--blue" type="submit" name="btnsub">Add</button>
+                                </div>
+                            </div>
                     </form>
                 </div>
             </div>

@@ -79,6 +79,10 @@ require './header.php';
                             </div>
                         </div>
                     </div>
+                    <button class="btn btn-success btn-rounded" style="color: white;text-decoration: none;"><a
+                            href="user/search.php"
+                            style="color: white;background-color: transparent;text-decoration: none;">Back to
+                            search</a></button>
                 </div>
             </div>
         </div>

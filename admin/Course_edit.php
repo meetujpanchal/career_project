@@ -24,7 +24,7 @@ if (isset($_POST['btnsub'])) {
         if (in_array($file_check, $extensions)) {
             $newimage = "uploads/" . $file_name;
             $result = mysqli_query($cn, "Update course set cname='" . $_POST['cnm'] . "',cfees='" . $_POST['cfs'] . "',cduration='" . $_POST['cdr'] . "',cdescri='" . $_POST['cdes'] . "',image='$newimage' where cid=" . $_REQUEST['course_id']) or die("Error In Update Query");
-            move_uploaded_file($file_tmp, $newimage);
+            move_uploaded_file($file_tmp, "views/sb_assets/" . $newimage);
             header("location:course1.php");
             exit();
         }
